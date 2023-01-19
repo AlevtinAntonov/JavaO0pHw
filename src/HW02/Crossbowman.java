@@ -1,17 +1,17 @@
 package HW02;
 
 public class Crossbowman extends BaseHero {
-    private int shots;
+    int shots;
 
     public Crossbowman(int attack, int defence, int[] damage, int maxHealth, int speed, String name,
-                       String role,int health, int shots) {
-        super(attack, defence, damage, maxHealth, speed, name, role, health);
+                       String role, int shots) {
+        super(attack, defence, damage, maxHealth, speed, name, role);
         this.shots = shots;
     }
 
     public Crossbowman(String name) {
         this(6, 3, new int[]{2, 3}, 10, 4,
-                name, "Crossbowman", 10,16);
+                name, "Crossbowman", 16);
     }
 
     @Override
@@ -19,8 +19,8 @@ public class Crossbowman extends BaseHero {
         return "\n Crossbowman: " + super.toString() + ", shots=" + shots;
     }
 
-    @Override
-    public String getInfo() {
-        return role;
-    }
+//    @Override
+//    public String getInfo() {
+//        return role;
+//    }
 }

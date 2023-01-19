@@ -1,7 +1,6 @@
 package HW02;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Main {
@@ -10,8 +9,8 @@ public class Main {
         Random rand = new Random();
         String heroName;
 
-        List<BaseHero> heroesOne = new ArrayList<>();
-        List<BaseHero> heroesTwo = new ArrayList<>();
+        ArrayList<BaseHero> heroesOne = new ArrayList<>();
+        ArrayList<BaseHero> heroesTwo = new ArrayList<>();
 
         for (int i = 0; i < teamCount; i++) {
             heroName = String.valueOf(Name.values()[rand.nextInt(Name.values().length)]);
@@ -29,6 +28,8 @@ public class Main {
                 case 3:
                     heroesOne.add(new Magician(heroName));
                     break;
+                default:
+                    break;
             }
             switch (rand.nextInt(4)) {
                 case 0:
@@ -43,12 +44,19 @@ public class Main {
                 case 3:
                     heroesTwo.add(new Monk(heroName));
                     break;
+                default:
+                    break;
             }
         }
 
         heroesOne.forEach(n -> System.out.print(n.getInfo()+", "));
         System.out.println();
         heroesTwo.forEach(n -> System.out.print(n.getInfo()+", "));
+        System.out.println();
+        heroesOne.forEach(n -> n.step(heroesOne));
+
+
+
 
 //        System.out.println(heroesOne);
 //        System.out.println(heroesTwo);

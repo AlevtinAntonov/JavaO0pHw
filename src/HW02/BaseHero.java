@@ -1,20 +1,17 @@
 package HW02;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public abstract class BaseHero implements InterfaceHero {
-    private int attack;
-    private int defence;
-    private int[] damage;
-    private int maxHealth;
-    private int speed;
-    private String name;
-    protected String role;
-    private int health;
+    int attack, defence, maxHealth, speed, health;
+    int[] damage;
+    String name, role;
 
 
     public BaseHero(int attack, int defence, int[] damage, int maxHealth, int speed, String name,
-                    String role, int health) {
+                    String role) {
         this.attack = attack;
         this.defence = defence;
         this.damage = damage;
@@ -22,7 +19,7 @@ public abstract class BaseHero implements InterfaceHero {
         this.speed = speed;
         this.name = name;
         this.role = role;
-        this.health = health;
+        this.health = maxHealth - new Random().nextInt(maxHealth);
     }
 
     public int getHealth() {
@@ -54,13 +51,15 @@ public abstract class BaseHero implements InterfaceHero {
     }
 
     @Override
-    public void step() {
+    public void step(ArrayList<BaseHero> heroesList) {
 
     }
+
     @Override
     public String getInfo() {
-        return null;
+        return role + " " + String.valueOf(maxHealth) +" " + String.valueOf(health);
     }
+
     @Override
     public String toString() {
         return name +
