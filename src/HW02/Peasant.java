@@ -3,13 +3,15 @@ package HW02;
 public class Peasant extends BaseHero {
     private int delivery;
 
-    public Peasant(int attack, int defence, int[] damage, int hp, int speed, String name, String role, int delivery) {
-        super(attack, defence, damage, hp, speed, name, role);
+    public Peasant(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
+                   int health, int delivery) {
+        super(attack, defence, damage, maxHealth, speed, name, role, health);
         this.delivery = delivery;
     }
 
     public Peasant(String name){
-        this(1, 1, new int[]{1}, 1, 3, name, "Peasant", 1);
+        this(1, 1, new int[]{1}, 1, 3, name,
+                "Peasant",1, 1);
     }
 
     public int getDelivery() {

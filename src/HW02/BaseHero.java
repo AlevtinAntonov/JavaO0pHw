@@ -13,7 +13,8 @@ public abstract class BaseHero implements InterfaceHero {
     private int health;
 
 
-    public BaseHero(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role, int health) {
+    public BaseHero(int attack, int defence, int[] damage, int maxHealth, int speed, String name,
+                    String role, int health) {
         this.attack = attack;
         this.defence = defence;
         this.damage = damage;

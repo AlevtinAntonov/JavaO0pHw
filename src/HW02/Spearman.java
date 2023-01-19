@@ -1,12 +1,14 @@
 package HW02;
 
 public class Spearman extends BaseHero {
-    public Spearman(int attack, int defence, int[] damage, int hp, int speed, String name, String role) {
-        super(attack, defence, damage, hp, speed, name, role);
+    public Spearman(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
+                    int health) {
+        super(attack, defence, damage, maxHealth, speed, name, role, health);
     }
 
     public Spearman(String name) {
-        this(4, 5, new int[]{1, 3}, 10, 4, name, "Spearman");
+        this(4, 5, new int[]{1, 3}, 10, 4, name,
+                "Spearman", 10);
     }
 
     @Override

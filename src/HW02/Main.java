@@ -50,8 +50,8 @@ public class Main {
         System.out.println();
         heroesTwo.forEach(n -> System.out.print(n.getInfo()+", "));
 
-        System.out.println(heroesOne);
-        System.out.println(heroesTwo);
+//        System.out.println(heroesOne);
+//        System.out.println(heroesTwo);
 
     }
 }

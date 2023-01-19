@@ -3,13 +3,15 @@ package HW02;
 public class Sniper extends BaseHero {
     private int shots;
 
-    public Sniper(int attack, int defence, int[] damage, int hp, int speed, String name, String role, int shots) {
-        super(attack, defence, damage, hp, speed, name, role);
+    public Sniper(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
+                  int health, int shots) {
+        super(attack, defence, damage, maxHealth, speed, name, role, health);
         this.shots = shots;
     }
 
     public Sniper(String name) {
-        this(12, 10, new int[]{8, 10}, 15, 9, name,"Sniper", 32);
+        this(12, 10, new int[]{8, 10}, 15, 9, name,
+                "Sniper", 15, 32);
     }
 
     @Override
