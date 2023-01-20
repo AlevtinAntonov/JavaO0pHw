@@ -3,7 +3,7 @@ package HW02;
 public class Monk extends BaseHero {
     int magic;
 
-    public Monk(int attack, int defence, int[] damage, int maxHealth, int speed, String name,String role,
+    public Monk(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
                 int magic) {
         super(attack, defence, damage, maxHealth, speed, name, role);
         this.magic = magic;
@@ -19,8 +19,4 @@ public class Monk extends BaseHero {
         return "\n Monk: " + super.toString() + ", magic=" + magic;
     }
 
-//    @Override
-//    public String getInfo() {
-//        return role;
-//    }
 }

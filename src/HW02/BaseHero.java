@@ -22,6 +22,11 @@ public abstract class BaseHero implements InterfaceHero {
         this.health = maxHealth - new Random().nextInt(maxHealth);
     }
 
+    public int setHealth(int health) {
+        this.health = health;
+        return health;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -51,13 +56,14 @@ public abstract class BaseHero implements InterfaceHero {
     }
 
     @Override
-    public void step(ArrayList<BaseHero> heroesList) {
+    public int step(ArrayList<BaseHero> heroesList) {
 
+        return 0;
     }
 
     @Override
     public String getInfo() {
-        return role + " " + String.valueOf(maxHealth) +" " + String.valueOf(health);
+        return role + " " + String.valueOf(maxHealth) + " " + String.valueOf(health);
     }
 
     @Override

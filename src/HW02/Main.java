@@ -49,17 +49,11 @@ public class Main {
             }
         }
 
-        heroesOne.forEach(n -> System.out.print(n.getInfo()+", "));
+        heroesOne.forEach(n -> System.out.print(n.getInfo() + ", "));
         System.out.println();
-        heroesTwo.forEach(n -> System.out.print(n.getInfo()+", "));
+        heroesTwo.forEach(n -> System.out.print(n.getInfo() + ", "));
         System.out.println();
         heroesOne.forEach(n -> n.step(heroesOne));
-
-
-
-
-//        System.out.println(heroesOne);
-//        System.out.println(heroesTwo);
 
     }
 }

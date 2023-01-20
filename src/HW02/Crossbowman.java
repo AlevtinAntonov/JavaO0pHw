@@ -19,8 +19,4 @@ public class Crossbowman extends BaseHero {
         return "\n Crossbowman: " + super.toString() + ", shots=" + shots;
     }
 
-//    @Override
-//    public String getInfo() {
-//        return role;
-//    }
 }

@@ -14,8 +14,4 @@ public class Outlaw extends BaseHero {
         return "\n Outlaw: " + super.toString();
     }
 
-//    @Override
-//    public String getInfo() {
-//        return role;
-//    }
 }

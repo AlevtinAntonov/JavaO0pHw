@@ -4,14 +4,14 @@ public class Peasant extends BaseHero {
     private int delivery;
 
     public Peasant(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
-                   int health, int delivery) {
-        super(attack, defence, damage, maxHealth, speed, name, role, health);
+                   int delivery) {
+        super(attack, defence, damage, maxHealth, speed, name, role);
         this.delivery = delivery;
     }
 
-    public Peasant(String name){
+    public Peasant(String name) {
         this(1, 1, new int[]{1}, 1, 3, name,
-                "Peasant",1, 1);
+                "Peasant", 1);
     }
 
     public int getDelivery() {
@@ -20,11 +20,7 @@ public class Peasant extends BaseHero {
 
     @Override
     public String toString() {
-        return  "\n Peasant: " + super.toString() + ", delivery=" + delivery;
+        return "\n Peasant: " + super.toString() + ", delivery=" + delivery;
     }
 
-    @Override
-    public String getInfo() {
-        return role;
-    }
 }
