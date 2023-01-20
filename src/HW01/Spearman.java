@@ -1,3 +1,5 @@
+package HW01;
+
 public class Spearman extends BaseHero {
     public Spearman(int attack, int defence, int[] damage, int hp, int speed, String name) {
         super(attack, defence, damage, hp, speed, name);
@@ -9,6 +11,6 @@ public class Spearman extends BaseHero {
 
     @Override
     public String toString() {
-        return "\n Spearman: " + super.toString();
+        return "\n HW01.Spearman: " + super.toString();
     }
 }

@@ -1,3 +1,5 @@
+package HW01;
+
 public class Sniper extends BaseHero {
     private int shots;
 
@@ -12,6 +14,6 @@ public class Sniper extends BaseHero {
 
     @Override
     public String toString() {
-        return "\n Sniper: " + super.toString() + ", shots=" + shots;
+        return "\n HW01.Sniper: " + super.toString() + ", shots=" + shots;
     }
 }

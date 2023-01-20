@@ -1,3 +1,5 @@
+package HW01;
+
 public class Peasant extends BaseHero {
     private int delivery;
 
@@ -16,6 +18,6 @@ public class Peasant extends BaseHero {
 
     @Override
     public String toString() {
-        return  "\n Peasant: " + super.toString() + ", delivery=" + delivery;
+        return  "\n HW01.Peasant: " + super.toString() + ", delivery=" + delivery;
     }
 }

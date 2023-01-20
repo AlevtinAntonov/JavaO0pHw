@@ -1,3 +1,5 @@
+package HW01;
+
 import java.util.Arrays;
 
 public class BaseHero {

@@ -1,3 +1,5 @@
+package HW01;
+
 public class Monk extends BaseHero {
     private int magic;
 
@@ -12,6 +14,6 @@ public class Monk extends BaseHero {
 
     @Override
     public String toString() {
-        return "\n Monk: " + super.toString() + ", magic=" + magic;
+        return "\n HW01.Monk: " + super.toString() + ", magic=" + magic;
     }
 }
