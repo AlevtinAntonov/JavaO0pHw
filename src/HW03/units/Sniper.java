@@ -67,6 +67,7 @@ public class Sniper extends BaseHero {
         }
         for (int i = 0; i < tempIndexMan.size(); i++) {
             ((Peasant) heroesList.get(tempIndexMan.get(i))).setStatus(1);
+            System.out.println("staus = 1 -> " +(Peasant) heroesList.get(tempIndexMan.get(i)));
         }
         return shots;
     }

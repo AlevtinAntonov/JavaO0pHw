@@ -50,7 +50,7 @@ public class Main {
                 break;
             }
             heroesOne.forEach(n -> n.step(heroesOne));
-            heroesTwo.forEach(n -> n.step(heroesTwo));
+//            heroesTwo.forEach(n -> n.step(heroesTwo));
         }
     }
     public static void moveHeroInList(ArrayList<BaseHero>  heroesList, String hero, String place){

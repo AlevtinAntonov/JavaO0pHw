@@ -59,11 +59,11 @@ public class Magician extends BaseHero {
                 } else {
                     heroesList.get(maxLostIndex).setHealth(heroesList.get(maxLostIndex).maxHealth);
                 }
-                System.out.println("Колдун: " + heroesList.get(tempIndexMag.get(i)).name + " вылечил -> " +
-                                   heroesList.get(maxLostIndex).role + " имя: " +
-                                   heroesList.get(maxLostIndex).name +
-                                   " new health= " + heroesList.get(maxLostIndex).health);
-                newMagic = ((Magician) heroesList.get(tempIndexMag.get(i))).magic - 1;
+//                System.out.println("Колдун: " + heroesList.get(tempIndexMag.get(i)).name + " вылечил -> " +
+//                                   heroesList.get(maxLostIndex).role + " имя: " +
+//                                   heroesList.get(maxLostIndex).name +
+//                                   " new health= " + heroesList.get(maxLostIndex).health);
+//                newMagic = ((Magician) heroesList.get(tempIndexMag.get(i))).magic - 1;
                 ((Magician) heroesList.get(tempIndexMag.get(i))).setMagic(newMagic);
                 break;
             } else {
