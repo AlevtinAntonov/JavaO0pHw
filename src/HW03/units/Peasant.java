@@ -1,5 +1,7 @@
 package HW03.units;
 
+import java.util.ArrayList;
+
 public class Peasant extends BaseHero {
     protected int delivery;
     protected int status;
@@ -23,11 +25,12 @@ public class Peasant extends BaseHero {
 
     public void setDelivery(int delivery) {this.delivery = delivery;}
 
+    @Override
+    public int step(ArrayList<BaseHero> heroesList) {
+        return status = 1;
+    }
+
     public void setStatus(int status) {this.status = status;}
-//    @Override
-//    public String getInfo() {
-//        return role + " " + status ;
-//    }
 
     @Override
     public String toString() {

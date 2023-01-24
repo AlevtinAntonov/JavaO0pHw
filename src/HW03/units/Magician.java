@@ -17,7 +17,8 @@ public class Magician extends BaseHero {
                 name, "Magician", 1);
     }
 
-    public int getMagic() { return magic;
+    public int getMagic() {
+        return magic;
     }
 
     public void setMagic(int magic) {
@@ -33,45 +34,36 @@ public class Magician extends BaseHero {
     public int step(ArrayList<BaseHero> heroesList) {
         double maxLostPercent = 0;
         int maxLostIndex = 0;
-        List<Integer> tempIndexMag = new ArrayList<>();
-        int newMagic = 0;
         for (int i = 0; i < heroesList.size(); i++) {
             String[] params = heroesList.get(i).getInfo().split(" ");
             if (Integer.parseInt(params[1]) != Integer.parseInt(params[2])) {
-                double temp = (Double.parseDouble(params[1]) - Double.parseDouble(params[2])) / Double.parseDouble(params[1]) * 100;
+                double temp = (Double.parseDouble(params[1]) - Double.parseDouble(params[2])) /
+                              Double.parseDouble(params[1]) * 100;
                 if (temp > maxLostPercent) {
                     maxLostPercent = temp;
                     maxLostIndex = i;
                 }
             }
-            if (heroesList.get(i).role == "Magician") {
-                tempIndexMag.add(i);
-            }
         }
-        System.out.println("Макс урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
+        System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
 
-        for (int i = 0; i < tempIndexMag.size(); i++) {
-            if (((Magician)heroesList.get(tempIndexMag.get(i))).magic > 0) {
-                int healer = (int) (heroesList.get(maxLostIndex).health + (heroesList.get(maxLostIndex).maxHealth *
-                                                                           maxLostPercent / 100 / 2));
-                if (healer <= heroesList.get(maxLostIndex).maxHealth) {
-                    heroesList.get(maxLostIndex).setHealth(healer);
-                } else {
-                    heroesList.get(maxLostIndex).setHealth(heroesList.get(maxLostIndex).maxHealth);
-                }
-//                System.out.println("Колдун: " + heroesList.get(tempIndexMag.get(i)).name + " вылечил -> " +
-//                                   heroesList.get(maxLostIndex).role + " имя: " +
-//                                   heroesList.get(maxLostIndex).name +
-//                                   " new health= " + heroesList.get(maxLostIndex).health);
-//                newMagic = ((Magician) heroesList.get(tempIndexMag.get(i))).magic - 1;
-                ((Magician) heroesList.get(tempIndexMag.get(i))).setMagic(newMagic);
-                break;
+        if (magic > 0) {
+            int healer = (int) (heroesList.get(maxLostIndex).health + (heroesList.get(maxLostIndex).maxHealth *
+                                                                       maxLostPercent / 100 / 2));
+            if (healer <= heroesList.get(maxLostIndex).maxHealth) {
+                heroesList.get(maxLostIndex).setHealth(healer);
             } else {
-                newMagic = ((Magician) heroesList.get(tempIndexMag.get(i))).magic + 1;
-                ((Magician) heroesList.get(tempIndexMag.get(i))).setMagic(newMagic);
+                heroesList.get(maxLostIndex).setHealth(heroesList.get(maxLostIndex).maxHealth);
             }
+            System.out.println("Колдун: " + name + " вылечил -> " +
+                               heroesList.get(maxLostIndex).role + " имя: " +
+                               heroesList.get(maxLostIndex).name +
+                               " здоровье стало -> " + heroesList.get(maxLostIndex).health);
+            magic -= 1;
+        } else {
+            System.out.println("Магия закончилась :) ");
         }
-        return maxLostIndex;
+        return magic;
     }
 
 }

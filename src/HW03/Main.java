@@ -49,8 +49,11 @@ public class Main {
             if (button.length() > 0) {
                 break;
             }
+            System.out.println("****** Team One ******");
             heroesOne.forEach(n -> n.step(heroesOne));
-//            heroesTwo.forEach(n -> n.step(heroesTwo));
+            System.out.println();
+            System.out.println("***** Team Two *******");
+            heroesTwo.forEach(n -> n.step(heroesTwo));
         }
     }
     public static void moveHeroInList(ArrayList<BaseHero>  heroesList, String hero, String place){

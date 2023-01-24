@@ -27,47 +27,21 @@ public class Sniper extends BaseHero {
 
     @Override
     public int step(ArrayList<BaseHero> heroesList) {
-        boolean isPeasant = false;
-        List<Integer> tempIndexMan = new ArrayList<>();
-        for (int i = 0; i < heroesList.size(); i++) {
-            if (heroesList.get(i).role == "Peasant") {
-                tempIndexMan.add(i);
-            }
+        if (shots > 0){
+            shots -= 1;
+            System.out.println("Снайпер: "+ name + " выстрелил, осталось стрел: " + shots);
+        } else {
+            System.out.println("У Снайпера: "+ name + " -> Стрелы закончились :)");
         }
-        System.out.println("tempIndexMan = " + tempIndexMan);
 
         for (int i = 0; i < heroesList.size(); i++) {
-            if (heroesList.get(i).role == "Sniper" && shots > 0) {
-                ((Sniper) heroesList.get(i)).shots -= 1;
-                System.out.println(heroesList.get(i).role + " -> " + heroesList.get(i).name + " выстрелил, shots= "
-                        + ((Sniper) heroesList.get(i)).shots);
+            if ((heroesList.get(i).role == "Peasant") && ((Peasant) heroesList.get(i)).status == 1){
+                shots +=1;
+                ((Peasant) heroesList.get(i)).setStatus(0);
+                System.out.println("Крестьянин " + ((Peasant) heroesList.get(i)).name + " принес стрелу Снайперу: "
+                                   + name + ", стало стрел -> " + shots);
+                break;
             }
-
-            if (heroesList.get(i).role == "Sniper") {
-//                System.out.println("== Sniper -> " + ((Sniper) heroesList.get(i)).shots);
-                for (int j = 0; j < tempIndexMan.size(); j++) {
-//                    System.out.println("j= " + j + " - " + ((Sniper) heroesList.get(i)).shots);
-                    if (((Peasant) heroesList.get(tempIndexMan.get(j))).status == 1) {
-                        System.out.println("Peasant status == 1");
-                        System.out.println();
-                        ((Sniper) heroesList.get(i)).shots += 1;
-                        ((Peasant) heroesList.get(tempIndexMan.get(j))).status = 0;
-                        System.out.println("heroesList.get(tempIndexMan.get(j))).status = 0 ->" +
-                                ((Peasant) heroesList.get(tempIndexMan.get(j))).status);
-                        System.out.println(heroesList.get(i).role + " -> " + heroesList.get(i).name + " вернул стрелу" + shots);
-                        break;
-                    } else {
-                        System.out.println("else status = 0 ");
-                    }
-                }
-                for (int j = 0; j < tempIndexMan.size(); j++) {
-                    ((Peasant) heroesList.get(tempIndexMan.get(j))).status = 0;
-                }
-            }
-        }
-        for (int i = 0; i < tempIndexMan.size(); i++) {
-            ((Peasant) heroesList.get(tempIndexMan.get(i))).setStatus(1);
-            System.out.println("staus = 1 -> " +(Peasant) heroesList.get(tempIndexMan.get(i)));
         }
         return shots;
     }
