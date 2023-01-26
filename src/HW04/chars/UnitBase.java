@@ -67,7 +67,7 @@ public abstract class UnitBase implements InterfaceHero {
     @Override
     public String getInfo() {
         String outStr;
-        outStr = format("%s\t%s\t⚔ %d\t\uD83D\uDEE1 %d\t♥%.1f\t☠%d\t%d", role, name, attack, protect, health, (damage[0] + damage[1]) / 2,speed);
+        outStr = format("%s\t%s\t⚔ %d\t\uD83D\uDEE1 %d\t♥%.1f\t☠%d\t\uD83C\uDFC3 %d", role, name, attack, protect, health, (damage[0] + damage[1]) / 2,speed);
         return  outStr;
     }
 
@@ -87,21 +87,6 @@ public abstract class UnitBase implements InterfaceHero {
                ", health=" + health +
                ", speed=" + speed;
     }
-
-
-//    @Override
-//    public String toString() {
-//        return name +
-//               ", role='" + role +
-//               ", attack=" + attack +
-//               ", protect=" + protect +
-//               ", maxHealth=" + maxHealth +
-//               ", speed=" + speed +
-//               ", health=" + health +
-//               ", damage=" + Arrays.toString(damage) +
-//               ", gang=" + gang +
-//               ", position=" + position;
-//    }
 
     public Vector2 getPosition() {
         return position;

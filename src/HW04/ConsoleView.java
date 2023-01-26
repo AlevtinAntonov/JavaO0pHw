@@ -67,8 +67,8 @@ public class ConsoleView {
 
             if (Main.darkSide.get(i).getPosition().isEquals(position)) {
                 str = "|" + AnsiColors.ANSI_BLUE + Main.darkSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET + "|"
-                      + " ".repeat(3) + AnsiColors.ANSI_GREEN + AnsiColors.ANSI_RESET
-                      + " ".repeat(5) + AnsiColors.ANSI_BLUE + AnsiColors.ANSI_RESET;
+                      + " ".repeat(3) + AnsiColors.ANSI_GREEN +  Main.whiteSide.get(i).getInfo() + AnsiColors.ANSI_RESET
+                      + " ".repeat(5) + AnsiColors.ANSI_BLUE + Main.darkSide.get(i).getInfo() + AnsiColors.ANSI_RESET;
             }
             if (Main.whiteSide.get(i).getPosition().isEquals(position)){
                 str = "|" + AnsiColors.ANSI_GREEN + Main.whiteSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;

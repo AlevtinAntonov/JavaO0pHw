@@ -5,7 +5,7 @@ import HW04.chars.*;
 import java.util.*;
 
 public class Main {
-    public static final int GANG_SIZE = 10;
+    public static final int GANG_SIZE = 5;
     public static ArrayList<UnitBase> whiteSide;
     public static ArrayList<UnitBase> whitePeasant;
     public static ArrayList<UnitBase> whiteTeam;
@@ -16,11 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         init();
-
-        whiteSide.forEach(n -> System.out.print(n.getInfo() + ", \n"));
-        System.out.println();
-        darkSide.forEach(n -> System.out.print(n.getInfo() + ", \n"));
-        System.out.println();
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
