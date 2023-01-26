@@ -1,7 +1,7 @@
 package HW04.chars;
 
 public enum Name {
-    Alex, Connor, David, Henry, John, Kevin, Luke, Morgan, Nicholas, Roger, Ronald, Ryan,
-    Simon, Stanley, Steven, Angel, Anthony, Antonio, Cameron, Carl, George, Gerld, Gilbert, Gordon;
+    Alex, Connor, David, Henry, John, Kevin, Luke, Morgan, Nico, Roger, Ronald, Ryan,
+    Simon, Stanley, Steven, Angel, Antony, Antonio, Cameron, Carl, George, Gerld, Gilb, Gordon;
 
 }
