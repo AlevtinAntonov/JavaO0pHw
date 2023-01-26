@@ -2,29 +2,30 @@ package HW04.chars;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
+import static java.lang.String.format;
+
 public abstract class UnitBase implements InterfaceHero {
-    int attack, defence, maxHealth, speed, health;
-    int[] damage;
-    String name, role, team;
+    protected int attack, protect, maxHealth, speed;
+    protected float health;
+    protected int[] damage;
+    protected String name, role;
+    protected List<UnitBase> gang;
+    protected Vector2 position;
 
 
-    public UnitBase(int attack, int defence, int[] damage, int maxHealth, int speed, String name,
-                    String role, String team, int x, int y) {
+    public UnitBase(int attack, int protect, int[] damage, int maxHealth, int speed, String name,
+                    String role) {
         this.attack = attack;
-        this.defence = defence;
+        this.protect = protect;
         this.damage = damage;
         this.maxHealth = maxHealth;
         this.speed = speed;
         this.name = name;
         this.role = role;
         this.health = maxHealth - new Random().nextInt(maxHealth);
-        this.team = team;
-
-    }
-
-    public UnitBase(String heroName, ArrayList<UnitBase> team, int x, int y) {
 
     }
 
@@ -33,18 +34,15 @@ public abstract class UnitBase implements InterfaceHero {
         return health;
     }
 
+    public List<UnitBase> getGang() {
+        return gang;
+    }
+
     public String getRole() { return role;}
 
-    public int getHealth() {
-        return health;
-    }
 
     public int getAttack() {
         return attack;
-    }
-
-    public int getDefence() {
-        return defence;
     }
 
     public int[] getDamage() {
@@ -63,18 +61,13 @@ public abstract class UnitBase implements InterfaceHero {
         return name;
     }
 
-    public String getTeam() {return team;}
 
-    @Override
-    public int step(ArrayList<UnitBase> heroesList) {
 
-        return 0;
-    }
 
     @Override
     public String getInfo() {
         String outStr;
-        outStr = String.format("%s\t%s\t⚔ %d\t\uD83D\uDEE1 %d\t♥%d\t☠%d\t%d", role, name, attack, defence,health,(damage[0] + damage[1])/2,speed);
+        outStr = format("%s\t%s\t⚔ %d\t\uD83D\uDEE1 %d\t♥%.1f\t☠%d\t%d", role, name, attack, protect, health, (damage[0] + damage[1]) / 2,speed);
         return  outStr;
     }
 
@@ -88,11 +81,29 @@ public abstract class UnitBase implements InterfaceHero {
         return name +
                ", role=" + role +
                ", attack=" + attack +
-               ", defence=" + defence +
+               ", defence=" + protect +
                ", damage=" + Arrays.toString(damage) +
                ", maxHealth=" + maxHealth +
                ", health=" + health +
-               ", speed=" + speed +
-               ", team=" + team;
+               ", speed=" + speed;
+    }
+
+
+//    @Override
+//    public String toString() {
+//        return name +
+//               ", role='" + role +
+//               ", attack=" + attack +
+//               ", protect=" + protect +
+//               ", maxHealth=" + maxHealth +
+//               ", speed=" + speed +
+//               ", health=" + health +
+//               ", damage=" + Arrays.toString(damage) +
+//               ", gang=" + gang +
+//               ", position=" + position;
+//    }
+
+    public Vector2 getPosition() {
+        return position;
     }
 }

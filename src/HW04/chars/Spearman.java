@@ -1,13 +1,15 @@
 package HW04.chars;
 
-public class Spearman extends UnitBase {
-    public Spearman(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role) {
-        super(attack, defence, damage, maxHealth, speed, name, role);
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    public Spearman(String name) {
-        this(4, 5, new int[]{1, 3}, 10, 4, name,
+public class Spearman extends UnitBase {
+
+    public Spearman(List<UnitBase> gang, String name, int x, int y) {
+        super(4, 5, new int[]{1, 3}, 10, 4, name,
                 "Spearman");
+        super.gang = gang;
+        super.position = new Vector2(x, y);
     }
 
     @Override
@@ -15,4 +17,8 @@ public class Spearman extends UnitBase {
         return "\n Spearman: " + super.toString();
     }
 
+    @Override
+    public void step(ArrayList<UnitBase> heroesList) {
+
+    }
 }

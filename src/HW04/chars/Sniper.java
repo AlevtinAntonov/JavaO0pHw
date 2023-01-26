@@ -1,19 +1,19 @@
 package HW04.chars;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static HW04.Main.whiteSide;
 
 public class Sniper extends UnitBase {
-    int shots;
+    protected int shots;
 
-    public Sniper(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
-                  int shots) {
-        super(attack, defence, damage, maxHealth, speed, name, role);
-        this.shots = shots;
-    }
-
-    public Sniper(String name) {
-        this(12, 10, new int[]{8, 10}, 15, 9, name,
-                "Sniper", 32);
+    public Sniper(List<UnitBase> gang, String name, int x, int y) {
+        super(12, 10, new int[]{8, 10}, 15, 9, name,
+                "Sniper");
+        shots = 32;
+        super.gang = gang;
+        super.position = new Vector2(x, y);
     }
 
     public int getShots() {
@@ -24,8 +24,14 @@ public class Sniper extends UnitBase {
         this.shots = shots;
     }
 
+
     @Override
-    public int step(ArrayList<UnitBase> heroesList) {
+    public String toString() {
+        return "\n Снайпер: " + super.toString() + ", shots=" + shots;
+    }
+
+    @Override
+    public void step(ArrayList<UnitBase> heroesList) {
         if (shots > 0){
             shots -= 1;
             System.out.println("Снайпер: "+ name + " выстрелил, осталось стрел: " + shots);
@@ -33,20 +39,15 @@ public class Sniper extends UnitBase {
             System.out.println("У Снайпера: "+ name + " -> Стрелы закончились :)");
         }
 
-        for (int i = 0; i < heroesList.size(); i++) {
-            if ((heroesList.get(i).role == "Peasant") && ((Peasant) heroesList.get(i)).status == 1){
+        for (int i = 0; i < whiteSide.size(); i++) {
+
+            if ((whiteSide.get(i).role == "Peasant") && ((Peasant) whiteSide.get(i)).status == 1){
                 shots +=1;
-                ((Peasant) heroesList.get(i)).setStatus(0);
-                System.out.println("Крестьянин " + ((Peasant) heroesList.get(i)).name + " принес стрелу Снайперу: "
+                ((Peasant) whiteSide.get(i)).setStatus(0);
+                System.out.println("Крестьянин " + ((Peasant) whiteSide.get(i)).name + " принес стрелу Снайперу: "
                                    + name + ", стало стрел -> " + shots);
                 break;
             }
         }
-        return shots;
-    }
-
-    @Override
-    public String toString() {
-        return "\n Sniper: " + super.toString() + ", shots=" + shots;
     }
 }

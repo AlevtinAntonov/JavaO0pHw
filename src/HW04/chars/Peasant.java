@@ -1,45 +1,35 @@
 package HW04.chars;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Peasant extends UnitBase {
-    protected int delivery;
+    private boolean delivery;
     protected int status;
 
-    public Peasant(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
-                   int delivery, int status) {
-        super(attack, defence, damage, maxHealth, speed, name, role);
-        this.delivery = delivery;
-        this.status = status;
+    public Peasant(List<UnitBase> gang, String name, int x, int y) {
+        super(1, 1, new int[]{1, 1}, 1, 3, name,
+                "Peasant");
+        delivery = true;
+        status = 1;
+        super.gang = gang;
+        super.position = new Vector2(x, y);
+
+
     }
 
-    public Peasant(String name) {
-        this(1, 1, new int[]{1, 1}, 1, 3, name,
-                "Peasant", 1, 1);
-    }
-
-    public Peasant(String heroName, ArrayList<UnitBase> team, int x, int y) {
-        super(heroName, team, x, y);
-    }
-
-    public int getDelivery() {
-        return delivery;
-    }
     public int getStatus() { return status;}
 
-    public void setDelivery(int delivery) {this.delivery = delivery;}
-
-    @Override
-    public int step(ArrayList<UnitBase> heroesList) {
-        return status = 1;
-    }
 
     public void setStatus(int status) {this.status = status;}
 
     @Override
     public String toString() {
-        return "\n Peasant: " + super.toString() + ", delivery=" + delivery + ", status=" + status;
+        return "\n Крестьянин: " + super.toString() + ", delivery=" + delivery + ", status=" + status;
     }
 
-
+    @Override
+    public void step(ArrayList<UnitBase> heroesList) {
+        status = 1;
+    }
 }

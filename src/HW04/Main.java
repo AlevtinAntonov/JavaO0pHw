@@ -17,21 +17,15 @@ public class Main {
     public static void main(String[] args) {
         init();
 
-
-
-
-
-
-        whiteSide.forEach(n -> System.out.print(n.getInfo() + ", "));
+        whiteSide.forEach(n -> System.out.print(n.getInfo() + ", \n"));
         System.out.println();
-        darkSide.forEach(n -> System.out.print(n.getInfo() + ", "));
+        darkSide.forEach(n -> System.out.print(n.getInfo() + ", \n"));
         System.out.println();
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("****** White Team ******");
+            ConsoleView.view();
             whiteSide.forEach(n -> n.step(darkSide));
-            System.out.println("***** Dark Team *******");
             darkSide.forEach(n -> n.step(whiteSide));
             scanner.nextLine();
         }
@@ -51,16 +45,15 @@ public class Main {
         for (int i = 0; i < GANG_SIZE; i++) {
             heroName = String.valueOf(Name.values()[rand.nextInt(Name.values().length)]);
             switch (new Random().nextInt(4)) {
-                case 0: whitePeasant.add(new Peasant(heroName, whiteSide, x, y++)); break;
-                case 1: whiteTeam.add(new Outlaw(heroName, whiteSide, x, y++)); break;
-                case 2: whiteTeam.add(new Sniper(heroName, whiteSide, x, y++)); break;
-                default: whiteSide.add(new Magician(heroName, whiteSide, x, y++)); break;
+                case 0: whitePeasant.add(new Peasant( whiteSide, heroName, x, y++)); break;
+                case 1: whiteTeam.add(new Outlaw(whiteSide, heroName, x, y++)); break;
+                case 2: whiteTeam.add(new Sniper(whiteSide, heroName, x, y++)); break;
+                default: whiteSide.add(new Magician(whiteSide, heroName, x, y++)); break;
             }
         }
 
         whiteSide.addAll(whiteTeam);
         whiteSide.addAll(whitePeasant);
-
 
         x = GANG_SIZE;
         y = 1;
@@ -68,10 +61,10 @@ public class Main {
             heroName = String.valueOf(Name.values()[rand.nextInt(Name.values().length)]);
 
             switch (new Random().nextInt(4)) {
-                case 0: darkPeasant.add(new Peasant(heroName, darkSide, x, y++)); break;
-                case 1: darkTeam.add(new Spearman(heroName, darkSide, x, y++)); break;
-                case 2: darkTeam.add(new Crossbowman(heroName, darkSide, x, y++)); break;
-                default: darkSide.add(new Monk(heroName, darkSide, x, y++)); break;
+                case 0: darkPeasant.add(new Peasant(darkSide, heroName, x, y++)); break;
+                case 1: darkTeam.add(new Spearman(darkSide, heroName, x, y++)); break;
+                case 2: darkTeam.add(new Crossbowman(darkSide, heroName, x, y++)); break;
+                default: darkSide.add(new Monk(darkSide, heroName, x, y++)); break;
             }
         }
         darkSide.addAll(darkTeam);

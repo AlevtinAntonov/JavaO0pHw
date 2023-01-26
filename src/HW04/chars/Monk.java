@@ -1,42 +1,36 @@
 package HW04.chars;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static HW04.Main.darkSide;
+import static HW04.Main.whiteSide;
 
 public class Monk extends UnitBase {
-    int magic;
+    private boolean magic;
 
-    public Monk(int attack, int defence, int[] damage, int maxHealth, int speed, String name, String role,
-                String team, int magic) {
-        super(attack, defence, damage, maxHealth, speed, name, role, team);
-        this.magic = magic;
-    }
-
-    public Monk(String name) {
-        this(12, 7, new int[]{-4,-4}, 30, 5, name,
-                "Monk", team, 1);
-    }
-
-    public int getMagic() {
-        return magic;
-    }
-
-    public void setMagic(int magic) {
-        this.magic = magic;
+    public Monk(List<UnitBase> gang, String name, int x, int y) {
+        super(12, 7, new int[]{-4,-4}, 30, 5, name,
+                "Monk");
+        magic = true;
+        super.gang = gang;
+        super.position = new Vector2(x, y);
     }
 
     @Override
     public String toString() {
-        return "\n Monk: " + super.toString() + ", magic=" + magic;
+        return "\n Монах: " + super.toString() + ", magic=" + magic;
     }
 
     @Override
-    public int step(ArrayList<UnitBase> heroesList) {
+    public void step(ArrayList<UnitBase> heroesList) {
         double maxLostPercent = 0;
         int maxLostIndex = 0;
-        for (int i = 0; i < heroesList.size(); i++) {
-            String[] params = heroesList.get(i).getMaxLost().split(" ");
-            if (Integer.parseInt(params[1]) != Integer.parseInt(params[2])) {
-                double temp = (Double.parseDouble(params[1]) - Double.parseDouble(params[2])) / Double.parseDouble(params[1]) * 100;
+        for (int i = 0; i < darkSide.size(); i++) {
+            String[] params = darkSide.get(i).getMaxLost().split(" ");
+            if (Double.parseDouble(params[1]) != Double.parseDouble(params[2])) {
+                double temp = (Double.parseDouble(params[1]) - Double.parseDouble(params[2])) /
+                              Double.parseDouble(params[1]) * 100;
                 if (temp > maxLostPercent) {
                     maxLostPercent = temp;
                     maxLostIndex = i;
@@ -46,23 +40,20 @@ public class Monk extends UnitBase {
         System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
 
 
-        if (magic > 0) {
-            int healer = (int) (heroesList.get(maxLostIndex).health + (heroesList.get(maxLostIndex).maxHealth *
-                                                                       maxLostPercent / 100 / 2));
-            if (healer <= heroesList.get(maxLostIndex).maxHealth) {
-                heroesList.get(maxLostIndex).setHealth(healer);
+        if (magic) {
+            int healer = (int) (darkSide.get(maxLostIndex).health + (darkSide.get(maxLostIndex).maxHealth *
+                                                                      maxLostPercent / 100 / 2));
+            if (healer <= darkSide.get(maxLostIndex).maxHealth) {
+                darkSide.get(maxLostIndex).setHealth(healer);
             } else {
-                heroesList.get(maxLostIndex).setHealth(heroesList.get(maxLostIndex).maxHealth);
+                darkSide.get(maxLostIndex).setHealth(darkSide.get(maxLostIndex).maxHealth);
             }
             System.out.println("Монах: " + name + " вылечил -> " +
-                               heroesList.get(maxLostIndex).role + " имя: " +
-                               heroesList.get(maxLostIndex).name +
-                               " здоровье стало -> " + heroesList.get(maxLostIndex).health);
-            magic -= 1;
+                               darkSide.get(maxLostIndex).role + " имя: " +
+                               darkSide.get(maxLostIndex).name +
+                               " здоровье стало -> " + darkSide.get(maxLostIndex).health);
         } else {
             System.out.println("Магия закончилась :) ");
         }
-        return magic;
     }
-
 }
