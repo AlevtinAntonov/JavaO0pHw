@@ -34,9 +34,9 @@ public class Sniper extends UnitBase {
     public void step(ArrayList<UnitBase> heroesList) {
         if (shots > 0){
             shots -= 1;
-            System.out.println("Снайпер: "+ name + " выстрелил, осталось стрел: " + shots);
+//            System.out.println("Снайпер: "+ name + " выстрелил, осталось стрел: " + shots);
         } else {
-            System.out.println("У Снайпера: "+ name + " -> Стрелы закончились :)");
+//            System.out.println("У Снайпера: "+ name + " -> Стрелы закончились :)");
         }
 
         for (int i = 0; i < whiteSide.size(); i++) {
@@ -44,8 +44,8 @@ public class Sniper extends UnitBase {
             if ((whiteSide.get(i).role == "Peasant") && ((Peasant) whiteSide.get(i)).status == 1){
                 shots +=1;
                 ((Peasant) whiteSide.get(i)).setStatus(0);
-                System.out.println("Крестьянин " + ((Peasant) whiteSide.get(i)).name + " принес стрелу Снайперу: "
-                                   + name + ", стало стрел -> " + shots);
+//                System.out.println("Крестьянин " + ((Peasant) whiteSide.get(i)).name + " принес стрелу Снайперу: "
+//                                   + name + ", стало стрел -> " + shots);
                 break;
             }
         }

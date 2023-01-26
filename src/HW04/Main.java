@@ -5,7 +5,7 @@ import HW04.chars.*;
 import java.util.*;
 
 public class Main {
-    public static final int GANG_SIZE = 5;
+    public static final int GANG_SIZE = 10;
     public static ArrayList<UnitBase> whiteSide;
     public static ArrayList<UnitBase> whitePeasant;
     public static ArrayList<UnitBase> whiteTeam;

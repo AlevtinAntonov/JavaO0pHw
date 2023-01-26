@@ -38,7 +38,7 @@ public class Magician extends UnitBase {
                 }
             }
         }
-        System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
+//        System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
 
         if (magic) {
             int healer = (int) (whiteSide.get(maxLostIndex).health + (whiteSide.get(maxLostIndex).maxHealth *
@@ -48,12 +48,12 @@ public class Magician extends UnitBase {
             } else {
                 whiteSide.get(maxLostIndex).setHealth(whiteSide.get(maxLostIndex).maxHealth);
             }
-            System.out.println("Колдун: " + name + " вылечил -> " +
-                               whiteSide.get(maxLostIndex).role + " имя: " +
-                               whiteSide.get(maxLostIndex).name +
-                               " здоровье стало -> " + whiteSide.get(maxLostIndex).health);
+//            System.out.println("Колдун: " + name + " вылечил -> " +
+//                               whiteSide.get(maxLostIndex).role + " имя: " +
+//                               whiteSide.get(maxLostIndex).name +
+//                               " здоровье стало -> " + whiteSide.get(maxLostIndex).health);
         } else {
-            System.out.println("Магия закончилась :) ");
+//            System.out.println("Магия закончилась :) ");
         }
     }
 

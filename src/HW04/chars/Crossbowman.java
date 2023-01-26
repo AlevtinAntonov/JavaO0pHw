@@ -25,17 +25,17 @@ public class Crossbowman extends UnitBase {
     public void step(ArrayList<UnitBase> heroesList) {
         if (shots > 0){
             shots -= 1;
-            System.out.println("Арбалетчик: "+ name + " выстрелил, осталось стрел: " + shots);
+//            System.out.println("Арбалетчик: "+ name + " выстрелил, осталось стрел: " + shots);
         } else {
-            System.out.println("У Арбалетчика: "+ name + " -> Стрелы закончились :)");
+//            System.out.println("У Арбалетчика: "+ name + " -> Стрелы закончились :)");
         }
 
         for (int i = 0; i < darkSide.size(); i++) {
             if ((darkSide.get(i).role == "Peasant") && ((Peasant) darkSide.get(i)).status == 1){
                 shots +=1;
                 ((Peasant) darkSide.get(i)).setStatus(0);
-                System.out.println("Крестьянин " + ((Peasant) darkSide.get(i)).name + " принес стрелу Арбалетчику: "
-                                   + name + ", стало стрел -> " + shots);
+//                System.out.println("Крестьянин " + ((Peasant) darkSide.get(i)).name + " принес стрелу Арбалетчику: "
+//                                   + name + ", стало стрел -> " + shots);
                 break;
             }
         }

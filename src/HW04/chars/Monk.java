@@ -37,7 +37,7 @@ public class Monk extends UnitBase {
                 }
             }
         }
-        System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
+//        System.out.println("Максимальный урон %: " + maxLostPercent + ", Индекс: " + maxLostIndex);
 
 
         if (magic) {
@@ -48,12 +48,12 @@ public class Monk extends UnitBase {
             } else {
                 darkSide.get(maxLostIndex).setHealth(darkSide.get(maxLostIndex).maxHealth);
             }
-            System.out.println("Монах: " + name + " вылечил -> " +
-                               darkSide.get(maxLostIndex).role + " имя: " +
-                               darkSide.get(maxLostIndex).name +
-                               " здоровье стало -> " + darkSide.get(maxLostIndex).health);
+//            System.out.println("Монах: " + name + " вылечил -> " +
+//                               darkSide.get(maxLostIndex).role + " имя: " +
+//                               darkSide.get(maxLostIndex).name +
+//                               " здоровье стало -> " + darkSide.get(maxLostIndex).health);
         } else {
-            System.out.println("Магия закончилась :) ");
+//            System.out.println("Магия закончилась :) ");
         }
     }
 }
